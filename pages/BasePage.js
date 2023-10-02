@@ -1,12 +1,11 @@
 class BasePage {
-    constructor(driver) {
-      this.driver = driver;
-    }
-  
-    async open(url) {
-      await this.driver.get(url);
-    }
+  constructor(driver) {
+    this.driver = driver;
   }
-  
-  module.exports = BasePage;
-  
+
+  async navigateTo(url) {
+    await this.driver.get(url);
+  }
+}
+
+module.exports = BasePage;
