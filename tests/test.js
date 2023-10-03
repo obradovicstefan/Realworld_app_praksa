@@ -1,28 +1,28 @@
-const { Builder, Key } = require('selenium-webdriver');
-const { describe, it, before, after } = require('mocha');
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-const { createHomePage } = require('../pages/HomePage');
+const { Builder } = require("selenium-webdriver");
+const assert = require("assert");
+const LoginPage = require("../pages/LoginPage");
+const { expect } = require("chai");
+const { describe, it, before, after } = require("mocha");
 
-chai.use(chaiAsPromised);
-const expect = chai.expect;
+// chai.use(chaiAsPromised);
+// const expect = chai.expect;
 
-describe('Sample Selenium Test', async function () {
-  const driver = await new Builder().forBrowser('chrome').build();
-  try {
-    const homePage = new HomePage(driver);
+describe("Login test", async function () {
+  let driver;
 
-    await homePage.open();
-    await homePage.search('Selenium with JavaScript');
+  before(async function () {
+    driver = await new Builder().forBrowser("chrome").build();
+    loginPage = new LoginPage(driver);
+  });
 
-    const searchResultsPage = await homePage.navigateToSearchResultsPage();
+  it("Validate login", async function () {
+    await loginPage.logIn();
 
-    // Use the searchResultsPage object for further interactions
-    // For example, you can add assertions or additional actions here
-    // const pageTitle = await searchResultsPage.getTitle();
-    // expect(pageTitle).to.equal('Selenium with JavaScript - Google Search');
-    console.log('Test Passed: Search results page is displayed.');
-  } finally {
+    const currentUrl = await driver.getCurrentUrl();
+    expect(currentUrl).to.include("http://localhost:3000/");
+  });
+
+  after(async function () {
     await driver.quit();
-  }
+  });
 });
