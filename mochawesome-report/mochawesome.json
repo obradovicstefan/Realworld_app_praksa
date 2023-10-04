@@ -1,23 +1,118 @@
 {
   "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-10-02T21:33:48.089Z",
-    "end": "2023-10-02T21:33:48.089Z",
-    "duration": 0,
-    "testsRegistered": 0,
-    "passPercent": null,
-    "pendingPercent": null,
+    "start": "2023-10-03T16:03:03.014Z",
+    "end": "2023-10-03T16:03:11.288Z",
+    "duration": 8274,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    false
+    {
+      "uuid": "cc73655a-7d30-44c8-8b04-f8d27cac37db",
+      "title": "",
+      "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\test.js",
+      "file": "\\tests\\test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "12107f0d-89f8-4896-ba47-061612b6b3ec",
+          "title": "Login test",
+          "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\test.js",
+          "file": "\\tests\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login test\"",
+              "fullTitle": "Login test \"before all\" hook in \"Login test\"",
+              "timedOut": false,
+              "duration": 1789,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nloginPage = new LoginPage(driver);",
+              "err": {},
+              "uuid": "3b1da135-67d2-4727-886f-c01adfa2b686",
+              "parentUUID": "12107f0d-89f8-4896-ba47-061612b6b3ec",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login test\"",
+              "fullTitle": "Login test \"after all\" hook in \"Login test\"",
+              "timedOut": false,
+              "duration": 108,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "60d2e29b-b33c-4cb3-8c1c-0c1442e5a2ec",
+              "parentUUID": "12107f0d-89f8-4896-ba47-061612b6b3ec",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Validate login",
+              "fullTitle": "Login test Validate login",
+              "timedOut": false,
+              "duration": 6357,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await loginPage.logIn();\nconst currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.include(\"http://localhost:3000/\");",
+              "err": {},
+              "uuid": "ee18dc0f-08dd-4eea-9af9-a548db6c1568",
+              "parentUUID": "12107f0d-89f8-4896-ba47-061612b6b3ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee18dc0f-08dd-4eea-9af9-a548db6c1568"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6357,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
   ],
   "meta": {
     "mocha": {
