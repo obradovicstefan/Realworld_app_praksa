@@ -1,3 +1,5 @@
+const { By, until } = require("selenium-webdriver");
+
 class BasePage {
   constructor(driver) {
     this.driver = driver;
@@ -6,17 +8,25 @@ class BasePage {
   async navigate(url) {
     await this.driver.get(url);
   }
-  async clickBtn(locator) {
-    await this.driver.findElement(locator).click();
+  async clickBtn(locator, timeout = 10000) {
+    const element = await this.driver.wait(until.elementLocated(locator), timeout);
+    await this.driver.wait(until.elementIsEnabled(element), timeout);
+    await element.click();
   }
 
-  async sleep(s) {
-    await this.driver.sleep(s);
-  }
+async waitForElementVisible(locator, timeout = 10000){
+  await this.driver.wait(until.elementIsVisible(this.driver.findElement(locator)),timeout)
+}
 
-  async sendKeys(locator, characters) {
+async sendKeys(locator, characters) {
+    await this.driver.wait(until.elementLocated(locator), 5000);
     await this.driver.findElement(locator).sendKeys(characters);
   }
+
+async assertElementDisplayed(element, message = "") {
+  const isDisplayed = await element.isDisplayed();
+  expect(isDisplayed, message).to.be.true;
+}
 }
 
 module.exports = BasePage;

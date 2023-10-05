@@ -1,4 +1,4 @@
-const { Builder } = require("selenium-webdriver");
+const { Builder, WebDriver } = require("selenium-webdriver");
 const assert = require("assert");
 const LoginPage = require("../pages/LoginPage");
 const { expect } = require("chai");
@@ -19,10 +19,11 @@ describe("Login test", async function () {
     await loginPage.logIn();
 
     const currentUrl = await driver.getCurrentUrl();
-    expect(currentUrl).to.include("http://localhost:3000/");
+    expect(currentUrl).to.equal("http://localhost:3000/");
   });
 
   after(async function () {
     await driver.quit();
   });
 });
+
