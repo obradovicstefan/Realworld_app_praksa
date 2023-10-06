@@ -9,6 +9,7 @@ const { describe, it, before, after } = require("mocha");
 
 describe("Sign Up test", async function () {
   let driver;
+  let signUpPage;
 
   before(async function () {
     driver = await new Builder().forBrowser("chrome").build();

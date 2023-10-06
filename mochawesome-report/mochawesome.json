@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2023-10-05T07:14:25.143Z",
-    "end": "2023-10-05T07:14:42.672Z",
-    "duration": 17529,
+    "start": "2023-10-06T06:47:59.061Z",
+    "end": "2023-10-06T06:48:14.648Z",
+    "duration": 15587,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7bdb276c-6bea-4286-ae9f-4932f7387ea0",
+      "uuid": "e390a9db-9d9e-45c3-9547-0f72c3586142",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "93460a1a-8888-47e7-9d9f-97e146a97151",
+          "uuid": "8ebbb29d-a7f0-4f16-88f5-b8ad1bf68924",
           "title": "Login test fail",
           "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\invalidLogIn.test.js",
           "file": "\\tests\\invalidLogIn.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Login test fail\"",
               "fullTitle": "Login test fail \"before all\" hook in \"Login test fail\"",
               "timedOut": false,
-              "duration": 1920,
+              "duration": 1607,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser(\"chrome\").build();\ninvalidlogin = new InvalidLogInPage(driver);",
               "err": {},
-              "uuid": "bfbf5ef0-6722-49a6-882a-c2f78be51f84",
-              "parentUUID": "93460a1a-8888-47e7-9d9f-97e146a97151",
+              "uuid": "29d3a9be-6088-4160-ac0d-1ade67335bb3",
+              "parentUUID": "8ebbb29d-a7f0-4f16-88f5-b8ad1bf68924",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Login test fail\"",
               "fullTitle": "Login test fail \"after all\" hook in \"Login test fail\"",
               "timedOut": false,
-              "duration": 61,
+              "duration": 87,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "b54ee18a-c10b-49ec-a766-17ed5b172a7c",
-              "parentUUID": "93460a1a-8888-47e7-9d9f-97e146a97151",
+              "uuid": "17cb9313-cd8e-4943-8c78-bc125e837b0d",
+              "parentUUID": "8ebbb29d-a7f0-4f16-88f5-b8ad1bf68924",
               "isHook": true,
               "skipped": false
             }
@@ -76,7 +76,7 @@
               "title": "Validate login fail",
               "fullTitle": "Login test fail Validate login fail",
               "timedOut": false,
-              "duration": 1926,
+              "duration": 1752,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,26 +85,26 @@
               "context": null,
               "code": "await invalidlogin.invalidLogIn();\nconst errorMessageElement = await driver.findElement(invalidlogin.text);\nconst errorMessageText = await errorMessageElement.getText();\nexpect(errorMessageText).to.equal(\"Username or password is invalid\");",
               "err": {},
-              "uuid": "06a4bf4a-b6f6-4166-8cfa-2a18bdb7141e",
-              "parentUUID": "93460a1a-8888-47e7-9d9f-97e146a97151",
+              "uuid": "198bc353-8546-4e34-aea1-90ca7af22dda",
+              "parentUUID": "8ebbb29d-a7f0-4f16-88f5-b8ad1bf68924",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "06a4bf4a-b6f6-4166-8cfa-2a18bdb7141e"
+            "198bc353-8546-4e34-aea1-90ca7af22dda"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1926,
+          "duration": 1752,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
         },
         {
-          "uuid": "5fba4909-2145-4c3e-bd7e-0985e5380f55",
+          "uuid": "e62af391-dc9a-4e17-83d0-bf461fb79866",
           "title": "Sign Up test fail",
           "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\invalidSignUp.test.js",
           "file": "\\tests\\invalidSignUp.test.js",
@@ -113,7 +113,7 @@
               "title": "\"before all\" hook in \"Sign Up test fail\"",
               "fullTitle": "Sign Up test fail \"before all\" hook in \"Sign Up test fail\"",
               "timedOut": false,
-              "duration": 1893,
+              "duration": 1635,
               "state": null,
               "speed": null,
               "pass": false,
@@ -122,8 +122,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser(\"chrome\").build();\ninvalidSignUp = new InvalidSignUpPage(driver);",
               "err": {},
-              "uuid": "22635253-3587-4a07-bd4a-28781255398a",
-              "parentUUID": "5fba4909-2145-4c3e-bd7e-0985e5380f55",
+              "uuid": "4d2d5107-4557-42b9-9762-44f3f486a4af",
+              "parentUUID": "e62af391-dc9a-4e17-83d0-bf461fb79866",
               "isHook": true,
               "skipped": false
             }
@@ -133,7 +133,7 @@
               "title": "\"after all\" hook in \"Sign Up test fail\"",
               "fullTitle": "Sign Up test fail \"after all\" hook in \"Sign Up test fail\"",
               "timedOut": false,
-              "duration": 61,
+              "duration": 95,
               "state": null,
               "speed": null,
               "pass": false,
@@ -142,8 +142,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "30dfe5d1-a4a6-44f9-b8d1-09641d1c6d19",
-              "parentUUID": "5fba4909-2145-4c3e-bd7e-0985e5380f55",
+              "uuid": "4a82e6f9-7547-49b2-b130-8c582fed8788",
+              "parentUUID": "e62af391-dc9a-4e17-83d0-bf461fb79866",
               "isHook": true,
               "skipped": false
             }
@@ -153,7 +153,7 @@
               "title": "Validate SignUp fail",
               "fullTitle": "Sign Up test fail Validate SignUp fail",
               "timedOut": false,
-              "duration": 2548,
+              "duration": 2289,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -162,26 +162,26 @@
               "context": null,
               "code": "await invalidSignUp.invalidSignUp();\nconst button = await driver.findElement(invalidSignUp.invalidSignUpBtn);\nassert.isTrue(await button.getAttribute(\"disabled\") === \"true\", 'Button is not disabled');",
               "err": {},
-              "uuid": "e22fa387-0989-4f40-908a-900eb8095dff",
-              "parentUUID": "5fba4909-2145-4c3e-bd7e-0985e5380f55",
+              "uuid": "8a6aed4f-0b83-4dd2-b50f-080b6b5b3146",
+              "parentUUID": "e62af391-dc9a-4e17-83d0-bf461fb79866",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e22fa387-0989-4f40-908a-900eb8095dff"
+            "8a6aed4f-0b83-4dd2-b50f-080b6b5b3146"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2548,
+          "duration": 2289,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
         },
         {
-          "uuid": "fc32e51f-d94c-4ead-82f3-757957e6c4c9",
+          "uuid": "a7269b17-db3a-4a4b-8d1e-5fefac777493",
           "title": "Login test",
           "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\logIn.test.js",
           "file": "\\tests\\logIn.test.js",
@@ -190,7 +190,7 @@
               "title": "\"before all\" hook in \"Login test\"",
               "fullTitle": "Login test \"before all\" hook in \"Login test\"",
               "timedOut": false,
-              "duration": 1755,
+              "duration": 1657,
               "state": null,
               "speed": null,
               "pass": false,
@@ -199,8 +199,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nloginPage = new LoginPage(driver);",
               "err": {},
-              "uuid": "3372a99b-d564-4e98-965a-eb9070ef870c",
-              "parentUUID": "fc32e51f-d94c-4ead-82f3-757957e6c4c9",
+              "uuid": "f2972fdc-f9ea-44aa-b80e-b0061756b629",
+              "parentUUID": "a7269b17-db3a-4a4b-8d1e-5fefac777493",
               "isHook": true,
               "skipped": false
             }
@@ -210,7 +210,7 @@
               "title": "\"after all\" hook in \"Login test\"",
               "fullTitle": "Login test \"after all\" hook in \"Login test\"",
               "timedOut": false,
-              "duration": 172,
+              "duration": 139,
               "state": null,
               "speed": null,
               "pass": false,
@@ -219,8 +219,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "60b65a24-f9d2-4e2c-83e1-95b1c6842a80",
-              "parentUUID": "fc32e51f-d94c-4ead-82f3-757957e6c4c9",
+              "uuid": "1cd9e280-104c-42f0-87ab-3cef781b6fe7",
+              "parentUUID": "a7269b17-db3a-4a4b-8d1e-5fefac777493",
               "isHook": true,
               "skipped": false
             }
@@ -230,7 +230,7 @@
               "title": "Validate login",
               "fullTitle": "Login test Validate login",
               "timedOut": false,
-              "duration": 2348,
+              "duration": 2099,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -239,26 +239,26 @@
               "context": null,
               "code": "await loginPage.logIn();\nconst currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.equal(\"http://localhost:3000/\");",
               "err": {},
-              "uuid": "64d51b6b-85af-4487-aa55-54f7b1a2aad8",
-              "parentUUID": "fc32e51f-d94c-4ead-82f3-757957e6c4c9",
+              "uuid": "33c02d97-8765-4a0e-bf60-538fa217ffa8",
+              "parentUUID": "a7269b17-db3a-4a4b-8d1e-5fefac777493",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "64d51b6b-85af-4487-aa55-54f7b1a2aad8"
+            "33c02d97-8765-4a0e-bf60-538fa217ffa8"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2348,
+          "duration": 2099,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
         },
         {
-          "uuid": "56363f5f-e3dc-432a-bf22-b32965909202",
+          "uuid": "8e765754-1ac1-4134-9bdf-334919a60b24",
           "title": "Sign Up test",
           "fullFile": "C:\\Users\\Asus\\Desktop\\RCA\\Realworld_app_praksa\\tests\\signUp.test.js",
           "file": "\\tests\\signUp.test.js",
@@ -267,7 +267,7 @@
               "title": "\"before all\" hook in \"Sign Up test\"",
               "fullTitle": "Sign Up test \"before all\" hook in \"Sign Up test\"",
               "timedOut": false,
-              "duration": 1836,
+              "duration": 1593,
               "state": null,
               "speed": null,
               "pass": false,
@@ -276,8 +276,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nsignUpPage = new SignUpPage(driver);",
               "err": {},
-              "uuid": "f71f4749-e60d-4d2f-b878-12e9d2b17f9a",
-              "parentUUID": "56363f5f-e3dc-432a-bf22-b32965909202",
+              "uuid": "d1f2534c-20f9-4f0b-92f6-d1b1dba66f43",
+              "parentUUID": "8e765754-1ac1-4134-9bdf-334919a60b24",
               "isHook": true,
               "skipped": false
             }
@@ -287,7 +287,7 @@
               "title": "\"after all\" hook in \"Sign Up test\"",
               "fullTitle": "Sign Up test \"after all\" hook in \"Sign Up test\"",
               "timedOut": false,
-              "duration": 138,
+              "duration": 60,
               "state": null,
               "speed": null,
               "pass": false,
@@ -296,8 +296,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "4089f936-aa91-413f-817e-19fba710ebfd",
-              "parentUUID": "56363f5f-e3dc-432a-bf22-b32965909202",
+              "uuid": "add63c0e-0e2b-407f-8d67-129623f19ab5",
+              "parentUUID": "8e765754-1ac1-4134-9bdf-334919a60b24",
               "isHook": true,
               "skipped": false
             }
@@ -307,7 +307,7 @@
               "title": "Validate SignUp",
               "fullTitle": "Sign Up test Validate SignUp",
               "timedOut": false,
-              "duration": 2839,
+              "duration": 2537,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -316,20 +316,20 @@
               "context": null,
               "code": "await signUpPage.signUp();\nconst currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.equal(\"http://localhost:3000/signin\");",
               "err": {},
-              "uuid": "826f00fd-4dc7-4f83-9a83-633b0b15a2b1",
-              "parentUUID": "56363f5f-e3dc-432a-bf22-b32965909202",
+              "uuid": "698ace88-88d3-4105-a525-7eff911bac82",
+              "parentUUID": "8e765754-1ac1-4134-9bdf-334919a60b24",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "826f00fd-4dc7-4f83-9a83-633b0b15a2b1"
+            "698ace88-88d3-4105-a525-7eff911bac82"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2839,
+          "duration": 2537,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000

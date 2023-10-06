@@ -9,6 +9,7 @@ const assert = chai.assert;
 
 describe("Sign Up test fail", async function () {
   let driver;
+  let invalidSignUp;
 
   before(async function () {
     driver = await new Builder().forBrowser("chrome").build();
