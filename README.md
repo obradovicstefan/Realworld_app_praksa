@@ -1,9 +1,11 @@
 # Realworld_app_praksa
 
-Automated Testing README
+Automated Testing README:
+
 This README provides an overview of the files and test suites related to automated testing of a web application using Selenium WebDriver and Node.js. The tests are organized into multiple files, each focusing on specific functionalities and scenarios.
 
-Project Structure
+Project Structure:
+
 The project contains several files and directories:
 
 1. LoginPage.js
