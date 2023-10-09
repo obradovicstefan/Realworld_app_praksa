@@ -1,11 +1,12 @@
 const { Builder } = require("selenium-webdriver");
-const assert = require("assert");
+const chrome = require("selenium-webdriver/chrome");
 const SignUpPage = require("../pages/SignUpPage");
-const { expect } = require("chai");
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
 const { describe, it, before, after } = require("mocha");
 
-// chai.use(chaiAsPromised);
-// const expect = chai.expect;
+chai.use(chaiAsPromised);
+const assert = chai.assert;
 
 describe("Sign Up test", async function () {
   let driver;
@@ -20,7 +21,20 @@ describe("Sign Up test", async function () {
     await signUpPage.signUp();
 
     const currentUrl = await driver.getCurrentUrl();
-    expect(currentUrl).to.equal("http://localhost:3000/signin");
+    assert.isTrue(
+      currentUrl === signUpPage.loginUrl,
+      "Sign up was not successful"
+    );
+  });
+
+  it("Validate SignUp fail", async function () {
+    await signUpPage.invalidSignUp();
+
+    const button = await driver.findElement(signUpPage.btn);
+    assert.isTrue(
+      (await button.getAttribute("disabled")) === "true",
+      "Button is not disabled"
+    );
   });
 
   after(async function () {

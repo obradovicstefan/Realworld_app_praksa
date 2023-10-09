@@ -1,0 +1,16 @@
+{
+  "login": {
+    "username": "username",
+    "password": "password",
+    "submit": "[data-test='signin-submit']",
+    "errorMessage": "[data-test='signin-error']"
+  },
+  "signUp": {
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "username": "username",
+    "password": "password",
+    "confirmPassword": "confirmPassword",
+    "signUpBtn": "[data-test= 'signup-submit']"
+  }
+}
