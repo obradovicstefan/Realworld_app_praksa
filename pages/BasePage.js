@@ -1,4 +1,5 @@
 const { By, until, WebDriverWait } = require("selenium-webdriver");
+const { expect } = require("chai");
 
 class BasePage {
   constructor(driver) {
@@ -9,12 +10,7 @@ class BasePage {
     await this.driver.get(url);
   }
   async clickBtn(locator, timeout = 10000) {
-    const element = await this.driver.wait(
-      until.elementLocated(locator),
-      timeout
-    );
-    await this.driver.wait(until.elementIsEnabled(element), timeout);
-    await element.click();
+    await this.driver.wait(until.elementLocated(locator), timeout).click();
   }
 
   // async waitExplicit(condition, timeout = 10000) {
@@ -29,12 +25,16 @@ class BasePage {
     );
   }
 
+  async expectTextToEqual(element, expectedText) {
+    const actualText = await element.getText();
+    expect(actualText).to.equal(expectedText);
+  }
+
   async waitForUrl(url, timeout = 1000) {
     await this.driver.wait(until.urlIs(url), timeout);
   }
 
   async sendKeys(locator, characters) {
-    await this.driver.wait(until.elementLocated(locator), 10000);
     await this.driver.findElement(locator).sendKeys(characters);
   }
 

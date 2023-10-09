@@ -1,5 +1,6 @@
 const { Builder, WebDriver } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
+const BasePage = require("../pages/BasePage");
 const LoginPage = require("../pages/LoginPage");
 const chai = require("chai");
 const chaiAsPromised = require("chai-as-promised");
@@ -11,10 +12,12 @@ const expect = chai.expect;
 describe("Login test", async function () {
   let driver;
   let loginPage;
+  let basePage;
 
   before(async function () {
     driver = await new Builder().forBrowser("chrome").build();
     loginPage = new LoginPage(driver);
+    basePage = new BasePage(driver);
   });
 
   it("Login fail test", async function () {
@@ -22,9 +25,7 @@ describe("Login test", async function () {
 
     const errorMessageElement = await driver.findElement(loginPage.text);
 
-    const errorMessageText = await errorMessageElement.getText();
-
-    expect(errorMessageText).to.equal("Username or password is invalid");
+    await basePage.expectTextToEqual(errorMessageElement, "Username or password is invalid");
   });
 
   it("Login succes test", async function () {
