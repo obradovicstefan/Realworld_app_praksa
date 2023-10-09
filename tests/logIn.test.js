@@ -17,7 +17,7 @@ describe("Login test", async function () {
     loginPage = new LoginPage(driver);
   });
 
-  it("Validate login fail", async function () {
+  it("Login fail test", async function () {
     await loginPage.invalidLogIn();
 
     const errorMessageElement = await driver.findElement(loginPage.text);
@@ -27,7 +27,7 @@ describe("Login test", async function () {
     expect(errorMessageText).to.equal("Username or password is invalid");
   });
 
-  it("Validate login", async function () {
+  it("Login succes test", async function () {
     await loginPage.logIn();
 
     const currentUrl = await driver.getCurrentUrl();
@@ -35,6 +35,6 @@ describe("Login test", async function () {
   });
 
   after(async function () {
-       await driver.quit();
-    });
+    await driver.quit();
   });
+});

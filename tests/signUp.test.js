@@ -17,7 +17,7 @@ describe("Sign Up test", async function () {
     signUpPage = new SignUpPage(driver);
   });
 
-  it("Validate SignUp", async function () {
+  it("Validate SignUp success", async function () {
     await signUpPage.signUp();
 
     const currentUrl = await driver.getCurrentUrl();

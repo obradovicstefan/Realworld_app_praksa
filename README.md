@@ -17,8 +17,8 @@ This file contains the implementation of the LoginPage class, which represents t
 
 logIn() Method: Method to log in with valid user credentials.
 
-2. loginTest.js
-This file contains a test suite for the login functionality. It includes tests to validate successful login. Key components of this file include:
+2. logIn.test.js
+This file contains a test suite for the login functionality. It includes tests to validate successful and invalid login. Key components of this file include:
 
 - Dependencies: Import statements for necessary dependencies.
 - Test Suite Definition: Definition of a Mocha test suite named "Login test."
@@ -26,41 +26,27 @@ This file contains a test suite for the login functionality. It includes tests t
 - Test Case: Test case to validate successful login.
 - After Hook: Cleanup logic to quit the WebDriver after the test.
 
-3. InvalidLogInPage.js
+- LogIn() Method: Method to attempt login with invalid user credentials.
 
-This file contains the implementation of the InvalidLogInPage class, which represents the login page for invalid login attempts. It includes methods for attempting to log in with invalid user credentials. Key components of this file include:
-
-- Dependencies: Import statements for necessary dependencies.
-- Class Definition: Definition of the InvalidLogInPage class that extends the BasePage class.
-- Constructor: Initialization of locators and page-specific variables.
-
-- invalidLogIn() Method: Method to attempt login with invalid user credentials.
-
-4. invalidLoginTest.js
-This file contains a test suite for the login functionality with invalid credentials. It includes tests to validate that an error message is displayed when invalid credentials are used for login. Key components of this file include:
-
-Dependencies: Import statements for necessary dependencies.
-Test Suite Definition: Definition of a Mocha test suite named "Login test fail."
-Before Hook: Setup logic to initialize the WebDriver and InvalidLogInPage object.
-Test Case: Test case to validate that an error message is displayed for invalid login.
-After Hook: Cleanup logic to quit the WebDriver after the test.
-5. InvalidSignUpPage.js
-This file contains the implementation of the InvalidSignUpPage class, which represents the sign-up page for invalid sign-up attempts. It includes methods for attempting to sign up with invalid user information. Key components of this file include:
+3. SignUpPage.js
+ This file contains the implementation of the SignUpPage class, which represents the signup page of the web application. It includes methods for signing up in with valid user credentials. Key components of this file include:
 
 - Dependencies: Import statements for necessary dependencies.
-- Class Definition: Definition of the InvalidSignUpPage class that extends the BasePage class.
-- Constructor: Initialization of locators and page-specific variables.
-
-- invalidSignUp() Method: Method to attempt sign-up with invalid user information.
-
-6. invalidSignUpTest.js
-This file contains a test suite for the sign-up functionality with invalid user information. It includes tests to validate that the sign-up button is disabled when invalid information is entered. Key components of this file include:
-
-- Dependencies: Import statements for necessary dependencies.
-- Test Suite Definition: Definition of a Mocha test suite named "Sign Up test fail."
-- Before Hook: Setup logic to initialize the WebDriver and InvalidSignUpPage object.
-- Test Case: Test case to validate that the sign-up button is disabled for invalid sign-up.
+- Test Suite Definition: Definition of a Mocha test suite named "Sign Up test."
+- Before Hook: Setup logic to initialize the WebDriver and SignUpPage object.
+- Test Case: Test case to validate successful sign up.
 - After Hook: Cleanup logic to quit the WebDriver after the test.
+
+4. signUp.test.js
+ This file contains a test suite for the signup functionality. It includes tests to validate successful and invalid signup. Key components of this file include:
+
+- Dependencies: Import statements for necessary dependencies.
+- Test Suite Definition: Definition of a Mocha test suite named "SignUp test."
+- Before Hook: Setup logic to initialize the WebDriver and SignUpPage object.
+- Test Case: Test case to validate successful and invalid signup.
+- After Hook: Cleanup logic to quit the WebDriver after the test.
+
+- invalidSignUp() Method: Method to attempt login with invalid user credentials.
 
 Running the Tests:
 
@@ -76,15 +62,11 @@ Execute the tests by running the following commands:
 
 To run the login tests:
 
-- npm test loginTest.js
-
-To run the invalid login tests:
-
-- npm test invalidLoginTest.js
+- npm test logIn.test.js
 
 To run the invalid sign-up tests:
 
-- npm test invalidSignUpTest.js
+- npm test signUp.test.js
 
 
 The test results will be displayed in the console, indicating whether the tests passed or failed.
@@ -92,7 +74,7 @@ The test results will be displayed in the console, indicating whether the tests 
 Notes:
 These tests are designed to be run with the Chrome browser. Ensure that Chrome WebDriver is installed and compatible with the version of Chrome on your system.
 
-Modify the test data in the testdata.json file as needed to match your application's login and sign-up scenarios.
+Modify the test data in the json files as needed to match your application's login and sign-up scenarios.
 
 Additional test cases and scenarios can be added to expand test coverage.
 
