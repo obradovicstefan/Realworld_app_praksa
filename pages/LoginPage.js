@@ -16,8 +16,8 @@ class LoginPage extends BasePage {
     super(driver);
     this.url = url.loginUrl;
     this.baseUrl = url.baseUrl
-    this.username = By.id(loginLocators.username);
-    this.password = By.id(loginLocators.password);
+    this.username = By.css(loginLocators.username);
+    this.password = By.css(loginLocators.password);
     this.btn = By.css(loginLocators.submit);
     this.text = By.css(loginLocators.errorMessage);
   }
