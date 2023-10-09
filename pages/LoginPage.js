@@ -1,34 +1,45 @@
 const { Builder, By, until, WebDriverWait } = require("selenium-webdriver");
 const BasePage = require("./BasePage");
-const testData = require("../config/testdata.json");
+const urldata = require("../config/urldata.json");
+const credentials = require("../config/credentials.json");
+const locators = require("../config/locators.json");
 
 // Accessing test data
-const validUser = testData.validUser;
-const url = testData.urls;
-const loginLocators = testData.login;
+const validUser = credentials.validUser;
+const invalidUser = credentials.invalidUser;
+const url = urldata.urls;
+const loginLocators = locators.login;
 
 class LoginPage extends BasePage {
   // Define locators and methods specific to the Login page
   constructor(driver) {
     super(driver);
     this.url = url.loginUrl;
+    this.baseUrl = url.baseUrl
     this.username = By.id(loginLocators.username);
     this.password = By.id(loginLocators.password);
     this.btn = By.css(loginLocators.submit);
+    this.text = By.css(loginLocators.errorMessage);
   }
 
   async logIn() {
     await this.navigate(this.url);
 
-    await this.waitForElementVisible(this.username, 5000);
     await this.sendKeys(this.username, validUser.username);
-
-    await this.waitForElementVisible(this.password, 5000);
     await this.sendKeys(this.password, validUser.password);
     
     await this.clickBtn(this.btn);
-    await this.driver.wait(until.urlIs(url.baseUrl), 8000);
+    await this.waitForUrl(url.baseUrl);
   }
+
+  async invalidLogIn() {
+    await this.navigate(this.url);
+   
+    await this.sendKeys(this.username, invalidUser.username);
+    await this.sendKeys(this.password, invalidUser.password);
+  
+    await this.clickBtn(this.btn);
+  }  
 }
 
 module.exports = LoginPage;
