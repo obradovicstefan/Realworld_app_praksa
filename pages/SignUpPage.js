@@ -16,11 +16,11 @@ class SignUpPage extends BasePage {
     super(driver);
     this.url = url.signUpUrl;
     this.loginUrl = url.loginUrl;
-    this.firstName = By.id(signUpLocators.firstName);
-    this.lastName = By.id(signUpLocators.lastName);
-    this.username = By.id(signUpLocators.username);
-    this.password = By.id(signUpLocators.password);
-    this.confirm = By.id(signUpLocators.confirmPassword);
+    this.firstName = By.css(signUpLocators.firstName);
+    this.lastName = By.css(signUpLocators.lastName);
+    this.username = By.css(signUpLocators.username);
+    this.password = By.css(signUpLocators.password);
+    this.confirm = By.css(signUpLocators.confirmPassword);
     this.btn = By.css(signUpLocators.signUpBtn);
   }
 
