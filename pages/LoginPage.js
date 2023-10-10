@@ -1,4 +1,4 @@
-const { Builder, By, until, WebDriverWait } = require("selenium-webdriver");
+const { By } = require("selenium-webdriver");
 const BasePage = require("./BasePage");
 const urldata = require("../config/urldata.json");
 const credentials = require("../config/credentials.json");

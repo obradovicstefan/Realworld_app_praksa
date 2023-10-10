@@ -12,5 +12,16 @@
     "password": "#password",
     "confirmPassword": "#confirmPassword",
     "signUpBtn": "[data-test= 'signup-submit']"
+  },
+  "createAccount": {
+    "bankAccBtn": "[data-test='sidenav-bankaccounts']",
+    "createBtn": "[data-test='bankaccount-new']",
+    "bankName": "#bankaccount-bankName-input",
+    "routingNum": "#bankaccount-routingNumber-input",
+    "accNumber": "#bankaccount-accountNumber-input",
+    "saveBtn": "[data-test='bankaccount-submit']",
+    "deleteBtn": "button[data-test='bankaccount-delete']:last-child",
+    "ul": "[data-test='bankaccount-list']",
+    "li": "[//li[starts-with(@data-test, 'item-')]"
   }
 }

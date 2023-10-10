@@ -13,16 +13,15 @@ class BasePage {
     await this.driver.wait(until.elementLocated(locator), timeout).click();
   }
 
-  // async waitExplicit(condition, timeout = 10000) {
-  //   const wait = new WebDriverWait(this.driver, timeout);
-  //   return await wait.until(condition);
-  // }
-
   async waitForElementVisible(locator, timeout = 1000) {
     await this.driver.wait(
       until.elementIsVisible(this.driver.findElement(locator)),
       timeout
     );
+  }
+
+  async findElement(locator) {
+    await this.driver.findElement(locator);
   }
 
   async expectTextToEqual(element, expectedText) {
@@ -38,9 +37,16 @@ class BasePage {
     await this.driver.findElement(locator).sendKeys(characters);
   }
 
-  async assertElementDisplayed(element, message = "") {
-    const isDisplayed = await element.isDisplayed();
-    expect(isDisplayed, message).to.be.true;
+  async deleteBankAccount(deleteBtnLocator) {
+    const deleteButton = await this.driver.wait(
+      until.elementLocated(deleteBtnLocator)
+    );
+
+    if (deleteButton) {
+      await this.driver.wait(until.elementIsVisible(deleteButton));
+      await this.driver.wait(until.elementIsEnabled(deleteButton));
+      await deleteButton.click();
+    }
   }
 }
 
