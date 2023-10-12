@@ -11,7 +11,7 @@ const url = urldata.urls;
 const loginLocators = locators.login;
 
 class LoginPage extends BasePage {
-  // Define locators and methods specific to the Login page
+  // Locators and methods specific to the Login page
   constructor(driver) {
     super(driver);
     this.url = url.loginUrl;
@@ -22,22 +22,32 @@ class LoginPage extends BasePage {
     this.text = By.css(loginLocators.errorMessage);
   }
 
+  // Logs in with a valid username and password 
   async logIn() {
     await this.navigate(this.url);
 
+    await this.waitForElementVisible(this.username);
     await this.sendKeys(this.username, validUser.username);
+
+    await this.waitForElementVisible(this.password);
     await this.sendKeys(this.password, validUser.password);
     
     await this.clickBtn(this.btn);
     await this.waitForUrl(url.baseUrl);
   }
 
+  // Logs in with invalid password
   async invalidLogIn() {
     await this.navigate(this.url);
    
+    // Fills in required input fields
+    await this.waitForElementVisible(this.username);
     await this.sendKeys(this.username, invalidUser.username);
+
+    await this.waitForElementVisible(this.password);
     await this.sendKeys(this.password, invalidUser.password);
   
+    // Clicks button and logs in
     await this.clickBtn(this.btn);
   }  
 }
