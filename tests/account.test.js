@@ -42,7 +42,7 @@ describe("Create account test", async function () {
 
     const currentUrl = await driver.getCurrentUrl();
     expect(currentUrl).to.equal(
-      accountPage.url,
+      accountPage.bankUrl,
       "Account creation was not successful"
     );
   });

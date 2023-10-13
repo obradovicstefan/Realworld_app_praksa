@@ -14,7 +14,7 @@ class SignUpPage extends BasePage {
   // Locators and methods specific to the Login page
   constructor(driver) {
     super(driver);
-    this.url = url.signUpUrl;
+    this.signUpUrl = url.signUpUrl;
     this.loginUrl = url.loginUrl;
     this.firstName = By.css(signUpLocators.firstName);
     this.lastName = By.css(signUpLocators.lastName);
@@ -26,7 +26,7 @@ class SignUpPage extends BasePage {
 
   // SignUp function that fills in input fields with set credentials
   async signUp() {
-    await this.navigate(this.url);
+    await this.navigate(this.signUpUrl);
 
     await this.waitForElementVisible(this.firstName);
     await this.sendKeys(this.firstName, validSignUp.firstName);
@@ -44,13 +44,13 @@ class SignUpPage extends BasePage {
     await this.sendKeys(this.confirm, validSignUp.confirmPassword);
 
     await this.clickBtn(this.btn);
-    await this.waitForUrl(url.loginUrl);
+    await this.waitForUrl(this.loginUrl);
   }
 
   // Invalid Signup function that fills in input fields with set credentials
      
   async invalidSignUp() {
-    await this.navigate(this.url);
+    await this.navigate(this.signUpUrl);
 
     await this.waitForElementVisible(this.firstName);
     await this.sendKeys(this.firstName, invalidSignUp.firstName);

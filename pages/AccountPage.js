@@ -13,7 +13,7 @@ const createAccLocators = locators.createAccount;
 class AccountPage extends BasePage {
   constructor(driver) {
     super(driver);
-    this.url = url.bankAcc;
+    this.bankUrl = url.bankAcc;
     this.baseUrl = url.baseUrl;
     this.bankName = By.css(createAccLocators.bankName);
     this.accNumber = By.css(createAccLocators.accNumber);
@@ -32,21 +32,20 @@ class AccountPage extends BasePage {
     await this.clickBtn(this.bankAccBtn);
     await this.clickBtn(this.createBtn);
 
-    // Get data from the new account object
-    const { bankName, accountNumber, routingNumber } = newAccount;
-
     // Fill in and submit bank account information
     await this.waitForElementVisible(this.bankName);
-    await this.sendKeys(this.bankName, bankName);
+    await this.sendKeys(this.bankName, newAccount.bankName);
 
     await this.waitForElementVisible(this.accNumber);
-    await this.sendKeys(this.accNumber, accountNumber);
+    await this.sendKeys(this.accNumber, newAccount.accountNumber);
 
     await this.waitForElementVisible(this.routNumber);
-    await this.sendKeys(this.routNumber, routingNumber);
+    await this.sendKeys(this.routNumber, newAccount.routingNumber);
 
     await this.clickBtn(this.saveBtn);
-    await this.waitForUrl(url.bankAcc);
+    
+    // Wait for the URL to change to the bank URL
+    await this.waitForUrl(this.bankUrl);
   }
 
   // Deletes the bank account
