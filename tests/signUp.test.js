@@ -1,5 +1,4 @@
 // Import necessary modules and classes
-const { Builder } = require("selenium-webdriver");
 const DriverFactory = require('../config/driverFactory');
 const SignUpPage = require("../pages/SignUpPage");
 const chai = require("chai");
@@ -17,7 +16,7 @@ describe("Sign Up test", function () {
 
   // Before running the test suite, set up the WebDriver and pages
   before(async function () {
-    driver = await DriverFactory.getDriver('firefox');
+    driver = await DriverFactory.getDriver('chrome');
     signUpPage = new SignUpPage(driver);
   });
 

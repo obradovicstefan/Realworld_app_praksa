@@ -1,5 +1,4 @@
 // Import necessary modules and classes
-const { Builder } = require("selenium-webdriver");
 const DriverFactory = require('../config/driverFactory');
 const TransactionPage = require("../pages/TransactionPage");
 const LoginPage = require("../pages/LoginPage");
@@ -20,7 +19,7 @@ describe("Transactions test", async function () {
 
   // Before running the test suite, set up the WebDriver and pages
   before(async function () {
-    driver = await DriverFactory.getDriver('firefox');
+    driver = await DriverFactory.getDriver('chrome');
     transactionPage = new TransactionPage(driver);
     loginPage = new LoginPage(driver);
   });
