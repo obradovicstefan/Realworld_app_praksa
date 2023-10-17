@@ -22,7 +22,7 @@
     "accNumber": "#bankaccount-accountNumber-input",
     "saveBtn": "[data-test='bankaccount-submit']",
     "deleteBtn": "[data-test='bankaccount-delete']:last-of-type",
-    "accountListItem": "[data-test^='bankaccount-list']",
+    "accountListItem": "[data-test^='bankaccount-list-item']",
     "accountText": "p.MuiTypography-body1"
   },
   "newTransaction": {
