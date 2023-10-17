@@ -2,8 +2,10 @@
 const { Builder, until, By} = require("selenium-webdriver");
 const LoginPage = require("../pages/LoginPage");
 const AccountPage = require("../pages/AccountPage");
+const DriverFactory = require('../config/driverFactory');
 const chai = require("chai");
 const chaiAsPromised = require("chai-as-promised");
+const BasePage = require("../pages/BasePage");
 const screenshotDir = "./screenshots";
 
 // Use Chai with Chai as Promised for assertions
@@ -18,7 +20,7 @@ describe("Create account test", async function () {
 
   // Before running the test suite, set up the WebDriver and pages
   before(async function () {
-    driver = await new Builder().forBrowser("chrome").build();
+    driver = await DriverFactory.getDriver('firefox');
     loginPage = new LoginPage(driver);
     accountPage = new AccountPage(driver);
   });
@@ -28,11 +30,6 @@ describe("Create account test", async function () {
     if (this.currentTest.state === "failed") {
       await accountPage.takeScreenshot(this.currentTest.title, screenshotDir);
     }
-  });
-
-   // After running the test suite, quit the WebDriver
-   after(async function () {
-    await driver.quit();
   });
 
   // Test case: Successfully create new bank account
@@ -56,5 +53,11 @@ describe("Create account test", async function () {
       const expectedText = "Koch, Bergstrom and Turner Bank (Deleted)";
 
       expect(text).to.equal(expectedText);
+  });
+
+  
+   // After running the test suite, quit the WebDriver
+   after(async function () {
+    await driver.quit();
   });
 });
