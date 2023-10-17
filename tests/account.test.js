@@ -1,11 +1,10 @@
 // Import necessary modules and classes
-const { Builder, until, By} = require("selenium-webdriver");
+const { until } = require("selenium-webdriver");
 const LoginPage = require("../pages/LoginPage");
 const AccountPage = require("../pages/AccountPage");
 const DriverFactory = require('../config/driverFactory');
 const chai = require("chai");
 const chaiAsPromised = require("chai-as-promised");
-const BasePage = require("../pages/BasePage");
 const screenshotDir = "./screenshots";
 
 // Use Chai with Chai as Promised for assertions
@@ -20,7 +19,7 @@ describe("Create account test", async function () {
 
   // Before running the test suite, set up the WebDriver and pages
   before(async function () {
-    driver = await DriverFactory.getDriver('firefox');
+    driver = await DriverFactory.getDriver('chrome');
     loginPage = new LoginPage(driver);
     accountPage = new AccountPage(driver);
   });
