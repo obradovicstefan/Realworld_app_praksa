@@ -36,7 +36,7 @@ describe("Login test", async function () {
   });
 
   // Test case: Validate a successful log-in with a valid username or password
-  it("Login succes test", async function () {
+  it.only("Login succes test", async function () {
     await loginPage.logIn();
 
     const currentUrl = await driver.getCurrentUrl();

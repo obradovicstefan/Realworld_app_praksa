@@ -1,6 +1,6 @@
 const { Key, until } = require("selenium-webdriver");
 const fs = require("fs");
-const path = require('path');
+const path = require("path");
 
 // BasePage class for common Selenium WebDriver actions
 class BasePage {
@@ -25,16 +25,18 @@ class BasePage {
       await element.click();
       return true; // Click successful, resolve the promise
     };
-  
+
     if (await clickFunction()) {
       return; // Click was successful immediately, resolve the promise
     }
-  
+
     try {
       await this.waitWithTimeout(clickFunction, timeout);
     } catch (error) {
       // Handle the error when the click action fails or times out
-      throw new Error(`Timeout: Unable to click the element located by ${locator} within the specified time.`);
+      throw new Error(
+        `Timeout: Unable to click the element located by ${locator} within the specified time.`
+      );
     }
   }
 
@@ -48,16 +50,18 @@ class BasePage {
       }
       return false;
     };
-  
+
     if (await isVisibleFunction()) {
       return; // Element is visible immediately, resolve the promise
     }
-  
+
     try {
       await this.waitWithTimeout(isVisibleFunction, timeout);
     } catch (error) {
       // Handle the error when the element doesn't become visible within the specified timeout
-      throw new Error(`Timeout: Element located by ${locator} did not become visible within the specified time.`);
+      throw new Error(
+        `Timeout: Element located by ${locator} did not become visible within the specified time.`
+      );
     }
   }
 
@@ -68,7 +72,9 @@ class BasePage {
       return element;
     } catch (error) {
       // Handle any errors that occur when attempting to find the element
-      throw new Error(`Element located by ${locator} not found: ${error.message}`);
+      throw new Error(
+        `Element located by ${locator} not found: ${error.message}`
+      );
     }
   }
 
@@ -76,14 +82,14 @@ class BasePage {
   async waitWithTimeout(checkFunction, timeout) {
     return new Promise((resolve, reject) => {
       const checkInterval = 100; // Time interval between checks
-  
+
       const check = async () => {
         try {
           const result = await checkFunction();
           if (result) {
             resolve(result);
           } else if (timeout <= 0) {
-            reject(new Error('Timeout'));
+            reject(new Error("Timeout"));
           } else {
             setTimeout(check, checkInterval);
             timeout -= checkInterval;
@@ -92,30 +98,30 @@ class BasePage {
           reject(error);
         }
       };
-  
+
       check();
     });
   }
-
-  
 
   async expectTextToEqual(element, expectedText, timeout) {
     const checkFunction = async () => {
       const actualText = await element.getText();
       return {
         match: actualText === expectedText,
-        actualText
+        actualText,
       };
     };
-  
+
     return this.waitWithTimeout(checkFunction, timeout)
       .then(() => {
-        return;// Text matches, resolve the promise
+        return; // Text matches, resolve the promise
       })
       .catch((error) => {
         // Handle the timeout or other errors
-        if (error.message === 'Timeout') {
-          throw (new Error(`Timeout: Text did not match "${expectedText}" within the specified time.`));
+        if (error.message === "Timeout") {
+          throw new Error(
+            `Timeout: Text did not match "${expectedText}" within the specified time.`
+          );
         } else {
           throw error;
         }
@@ -128,15 +134,17 @@ class BasePage {
       const currentUrl = await this.driver.getCurrentUrl();
       return currentUrl === url;
     };
-  
+
     return this.waitWithTimeout(checkFunction, timeout)
       .then(() => {
         return; // URL matches, resolve the promise
       })
       .catch((error) => {
         // Handle the timeout or other errors
-        if (error.message === 'Timeout') {
-          throw new Error(`Timeout: URL did not match "${url}" within the specified time.`);
+        if (error.message === "Timeout") {
+          throw new Error(
+            `Timeout: URL did not match "${url}" within the specified time.`
+          );
         } else {
           throw error;
         }
@@ -147,8 +155,8 @@ class BasePage {
     return new Promise(async (resolve, reject) => {
       try {
         const inputField = await this.driver.findElement(locator);
-        await inputField.sendKeys(Key.chord(Key.CONTROL, 'a')); // Select all text
-        await inputField.sendKeys(Key.BACK_SPACE);  // Delete selected text
+        await inputField.sendKeys(Key.chord(Key.CONTROL, "a")); // Select all text
+        await inputField.sendKeys(Key.BACK_SPACE); // Delete selected text
         resolve();
       } catch (error) {
         reject(error);
@@ -180,15 +188,21 @@ class BasePage {
       await deleteButton.click();
     }
   }
-  
-   // Capture a screenshot and save it with a timestamp and a test title
+
+  // Capture a screenshot and save it with a timestamp and a test title
   async takeScreenshot(testTitle, screenshotDir) {
     if (this.driver) {
       const timestamp = new Date().toISOString().replace(/[-T:.]/g, '_');
       const screenshot = await this.driver.takeScreenshot();
       const fileName = `Screenshot-${timestamp}_${testTitle}.png`;
       const filePath = path.join(screenshotDir, fileName);
-      fs.writeFileSync(filePath, screenshot, "base64");
+
+      // Check if the directory exists, and if not, create it
+      if (!fs.existsSync(screenshotDir)) {
+        fs.mkdirSync(screenshotDir, { recursive: true });
+      }
+
+      fs.writeFileSync(filePath, screenshot, 'base64');
     }
   }
 }
